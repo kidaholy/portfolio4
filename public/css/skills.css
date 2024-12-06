@@ -1,0 +1,94 @@
+.skills-and-expert h2 {
+  text-align: center;
+  font-weight: 600;
+  font-size: 3rem;
+  margin: 40px;
+}
+
+ /* making some animation for the skilled languages*/
+
+.skills {
+  display: flex;
+  justify-content: center;
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+}
+
+.skills .skills-img {
+  filter: brightness(0.2);
+  transition: .4s;
+}
+
+.skills .skills-img:hover {
+  filter: brightness(1);
+  transform: translateZ(200px);
+  width: 80px;
+}
+
+.skills .skills-img:hover + * {
+  filter: brightness(0.6);
+  transform: translateZ(150px) rotateY(40deg);
+}
+
+.skills .skills-img:hover + * + *{
+  filter: brightness(0.4);
+  transform: translateZ(70px) rotateY(20deg);
+}
+.skills .skills-img:has(+ *:hover) {
+  filter: brightness(0.6);
+  transform: translateZ(150px) rotateY(-40deg);
+}
+.skills .skills-img:has(+ * + *:hover) {
+  filter: brightness(0.4);
+  transform: translateZ(70px) rotateY(-20deg);
+}
+
+/*until here we are making the animation*/
+
+.education {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 0 30px;
+}
+
+.education figcaption {
+  margin: 10px;
+  color: white;
+  font-size: 2rem;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.education figcaption:hover {
+  color: #b74b4b;
+}
+
+.education figure img {
+  width: 400px;
+  transition: 0.5s ease;
+}
+.education figure img:hover {
+  transform: scale(1.5) translateX(5px);
+}
+
+@media(max-width: 970px) {
+  .education figure img{
+    width: 200px;
+  }
+  .education figcaption {
+    margin: 10px;
+    color: white;
+    font-size: 1.4rem;
+    transition: 0.3s ease;
+  }
+}
+
+@media(max-width: 430px) {
+  .education{
+    flex-direction: column;
+    align-items: center;
+  }
+  .education figure img {
+    width: 300px;
+  }
+}
